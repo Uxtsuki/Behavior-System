@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://ctm33mmfcpe42"]
+
+[ext_resource type="Script" uid="uid://c5wja4pw1sdvd" path="res://Example/office.gd" id="1_0pr8i"]
+[ext_resource type="PackedScene" uid="uid://83kfuoor4xw6" path="res://Example/entity.tscn" id="1_styel"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0pr8i"]
+radius = 42.190044
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t44fw"]
+radius = 42.190044
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7cvnv"]
+radius = 42.190044
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1nl8"]
+radius = 42.190044
+
+[node name="Office" type="Node2D" unique_id=1815575026]
+script = ExtResource("1_0pr8i")
+
+[node name="Entity" parent="." unique_id=2054621933 instance=ExtResource("1_styel")]
+position = Vector2(622, 278)
+
+[node name="Refill" type="Area2D" parent="." unique_id=865030456]
+position = Vector2(61, 68)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Refill" unique_id=335513892]
+shape = SubResource("CircleShape2D_0pr8i")
+
+[node name="Label" type="Label" parent="Refill" unique_id=216771270]
+offset_left = -15.0
+offset_top = -65.0
+offset_right = 25.0
+offset_bottom = -42.0
+text = "Refill"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shred" type="Area2D" parent="." unique_id=1813682851]
+position = Vector2(134, 344)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shred" unique_id=1108916658]
+shape = SubResource("CircleShape2D_t44fw")
+
+[node name="Label" type="Label" parent="Shred" unique_id=190654509]
+offset_left = -15.0
+offset_top = -65.0
+offset_right = 25.0
+offset_bottom = -42.0
+text = "Shred"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Storage" type="Area2D" parent="." unique_id=915948557]
+position = Vector2(628, 559)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Storage" unique_id=605833386]
+shape = SubResource("CircleShape2D_7cvnv")
+
+[node name="Label" type="Label" parent="Storage" unique_id=804501872]
+offset_left = -15.0
+offset_top = -65.0
+offset_right = 25.0
+offset_bottom = -42.0
+text = "Storage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Delivery" type="Area2D" parent="." unique_id=1574079909]
+position = Vector2(1040, 452)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Delivery" unique_id=1738127380]
+shape = SubResource("CircleShape2D_m1nl8")
+
+[node name="Label" type="Label" parent="Delivery" unique_id=697734529]
+offset_left = -15.0
+offset_top = -65.0
+offset_right = 25.0
+offset_bottom = -42.0
+text = "Delivery"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=122356253]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1105.0
+offset_right = 1145.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[connection signal="area_entered" from="Refill" to="." method="_on_refill_area_entered"]
+[connection signal="area_entered" from="Shred" to="." method="_on_shred_area_entered"]
+[connection signal="area_entered" from="Storage" to="." method="_on_storage_area_entered"]
+[connection signal="area_entered" from="Delivery" to="." method="_on_delivery_area_entered"]

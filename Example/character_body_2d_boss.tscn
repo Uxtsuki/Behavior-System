@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bga0hnkdnqpj5"]
+
+[ext_resource type="Script" uid="uid://chy6e0mvaslp8" path="res://Example/character_body_2d_boss.gd" id="1_74evu"]
+[ext_resource type="Texture2D" uid="uid://dhc2wd8jy8urj" path="res://icon.svg" id="1_lnyyy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnyyy"]
+radius = 64.13462
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74evu"]
+radius = 106.29793
+
+[node name="CharacterBody2DBoss" type="CharacterBody2D" unique_id=602015492]
+self_modulate = Color(0.2799999, 0.19999999, 1, 1)
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_74evu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1508882837]
+texture = ExtResource("1_lnyyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2122094115]
+shape = SubResource("CircleShape2D_lnyyy")
+
+[node name="Hit" type="Area2D" parent="." unique_id=1222156362]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit" unique_id=1201605875]
+shape = SubResource("CircleShape2D_74evu")
+disabled = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=896514540]
+
+[node name="RayCast2D" type="RayCast2D" parent="Marker2D" unique_id=2024747562]
+enabled = false
+target_position = Vector2(300, 0)
+
+[node name="State" type="Label" parent="." unique_id=575233261]
+offset_left = -16.0
+offset_top = 66.0
+offset_right = 24.0
+offset_bottom = 89.0
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Phrase" type="Label" parent="." unique_id=731177768]
+custom_minimum_size = Vector2(150, 0)
+offset_left = -61.5
+offset_top = -138.0
+offset_right = 88.5
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 20
+
+[connection signal="area_entered" from="Hit" to="." method="_on_hit_area_entered"]

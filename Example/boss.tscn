@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bymnjmy2v65ci"]
+
+[ext_resource type="Script" uid="uid://cc5j26mwcxnr2" path="res://Example/boss.gd" id="1_uxnps"]
+[ext_resource type="PackedScene" uid="uid://83kfuoor4xw6" path="res://Example/entity.tscn" id="2_m3jph"]
+[ext_resource type="PackedScene" uid="uid://bga0hnkdnqpj5" path="res://Example/character_body_2d_boss.tscn" id="3_nt4id"]
+
+[node name="Boss" type="Node2D" unique_id=240588437]
+script = ExtResource("1_uxnps")
+
+[node name="Entity" parent="." unique_id=2054621933 groups=["player"] instance=ExtResource("2_m3jph")]
+position = Vector2(636, 546)
+
+[node name="CharacterBody2DBoss" parent="." unique_id=602015492 instance=ExtResource("3_nt4id")]
+position = Vector2(642, 132)
