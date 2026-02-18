@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BehaviorResource" format=3 uid="uid://d2psnqxg5u1fj"]
+
+[ext_resource type="Script" uid="uid://cpadkx32hnc6i" path="res://Behavior System/behavior_resource.gd" id="1_sl7dj"]
+
+[resource]
+script = ExtResource("1_sl7dj")
+_key = "Wander"
+_states = ["Move To"]
+metadata/_custom_type_script = "uid://cpadkx32hnc6i"
